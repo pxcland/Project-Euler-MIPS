@@ -14,22 +14,22 @@ main:
 	la $a1, num
 	
 loop1:
-	addiu $t1, $t1, 1		#increment loop for number 1
+	addiu $t1, $t1, 1	#increment loop for number 1
 	bge   $t1, $t0, done 	#999 is the bound of the loop
-	li    $t2, 99			#reset 2nd loop counter
+	li    $t2, 99		#reset 2nd loop counter
 loop2:
-	addiu $t2, $t2, 1		#increment loop for number 2
+	addiu $t2, $t2, 1	#increment loop for number 2
 	bge   $t2, $t0, loop1
 	mul   $v0, $t1, $t2
-	jal   isPalindrome		#v1 is return value
-	beqz  $v1, loop2		#if not a palindrome, get the next number
-	lw    $v1, ($a1)		#make sure we only overwrite the number if it is greater than the current one
+	jal   isPalindrome	#v1 is return value
+	beqz  $v1, loop2	#if not a palindrome, get the next number
+	lw    $v1, ($a1)	#make sure we only overwrite the number if it is greater than the current one
 	blt   $v0, $v1, loop2
-	sw    $v0, ($a1)		#if a palindrome, save it and overwrite the last
+	sw    $v0, ($a1)	#if a palindrome, save it and overwrite the last
 	j     loop2
 	
 done:
-	lw $a0, ($a1)			#print
+	lw $a0, ($a1)		#print
 	li $v0, 1
 	syscall
 	li $v0, 10
@@ -40,7 +40,7 @@ done:
 	#returns 0 or 1 in $v1
 isPalindrome:
 	move $t9, $v0		#save a copy, as we will need it later
-	li   $v1, 0			#stores the reversed numer for now
+	li   $v1, 0		#stores the reversed numer for now
 	li   $t8, 10
 isPalindromeLoop:
 	rem   $t7, $v0, $t8	#modulus 10 to get the least significant digit
