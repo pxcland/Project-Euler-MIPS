@@ -18,23 +18,23 @@ main:
 	
 iterate:
 	addiu	$t0, $t0, 1		#iterate the loop
-	bge		$t0, $t1, print	#on 1000, we are done
-	rem		$t8, $t0, $t3	#do i % 3
+	bge	$t0, $t1, print	#on 1000, we are done
+	rem	$t8, $t0, $t3	#do i % 3
 	beqz	$t8, multiple	#if i % 3 = 0, add to sum
-	rem		$t8, $t0, $t5
+	rem	$t8, $t0, $t5
 	beqz	$t8, multiple
-	j		iterate
+	j	iterate
 	
 multiple:
 	addu	$t9, $t9, $t0	#add i to total sum
-	j		iterate
+	j	iterate
 	
 print:
 	move	$a0, $t9
-	li		$v0, 1
+	li	$v0, 1
 	syscall
 exit:
-	li		$v0, 10
+	li	$v0, 10
 	syscall
 	
 	
