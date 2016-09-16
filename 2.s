@@ -13,8 +13,8 @@ main:
 	
 getFibonacci:
 	addu	$t3, $t0, $t1	#sum of last 2 numbers = new number
-	move	$t0, $t1	#move the last fibonacci number down
-	move	$t1, $t3	#replace with new fibonacci number
+	move	$t0, $t1		#move the last fibonacci number down
+	move	$t1, $t3		#replace with new fibonacci number
 	
 under4m:
 	bge	$t1, $t9, print	#if greater than 4m, we are done
