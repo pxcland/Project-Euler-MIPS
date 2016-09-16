@@ -43,7 +43,7 @@ isPTriplet:
 	beq  $s2, $s3, getAnswer
 	j    loopC
 	
-getAnswer
+getAnswer:
 	mul $a0, $t0, $t1		#calculate abc 
 	mul $a0, $a0, $t2
 print:
