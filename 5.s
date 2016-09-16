@@ -21,9 +21,9 @@ testDivisible:
 	j    increment
 	
 evenDiv:
-	addiu $t1, $t1, 1		#increment the divisor
+	addiu $t1, $t1, 1	#increment the divisor
 	bgt   $t1, $t2, done	#if the divisor is greater than 20, test if the number is prime
-	j     testDivisible		#and test it
+	j     testDivisible	#and test it
 	
 done:
 	move $a0, $t0	#print and exit
